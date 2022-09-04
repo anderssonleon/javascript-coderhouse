@@ -1,8 +1,7 @@
 let comprasTotales = 0;
-let totalDeProductos = 0;
-let productosAgregados = prompt(
+let productosAgregados = parseInt(prompt(
     `ELIGUE UNO DE NUESTROS PRODUCTOS:\n 
-     1.ADhesivo para rostro  
+     1.Adhesivo para rostro  
      2.Paleta 18 sombras rubi rose 
      3.Delineador de ojos de fibra 
      4.Labial exfoliante 
@@ -14,323 +13,73 @@ let productosAgregados = prompt(
      10.Mascara descongestiva 
      11.Agua miselar 
      12.delineador liquido 
-`);
+`))
 let seguirComprando;
 let agregarOtroProducto = true;
-let productosAlCarrito;
+let productos =[]
+let productosDesglosados;
+let productoNombre;
+let productoPrecio;
+let productosDesglosadosTotal =[]
+
+
+
 
 class Producto{
-    constructor(nombre,precio){
+    constructor(nombre,precio,id){
         this.nombre = nombre
         this.precio = precio
+        this.id =id
     }
 }
-const ahesivo = new Producto("ADHESIVO PARA ROSTRO",849)
-const paleta = new Producto("Paleta 18 sombras rubi rose",1490)
-const delineador = new Producto("Delineador de ojos de fibra",3196)
-const labialExfoliante = new Producto("Labial exfoliante",1598)
-const paletaIluminadora = new Producto("Paleta iluminadora",999)
-const setAriel = new Producto("Set ariel ",2399)
-const mascaraDeColageno = new Producto("Mascara colageno ",987)
-const mascaraDapop = new Producto("Mascara 2 en DAPOP ",1796)
-const comboPaletas = new Producto("Combo 3 paletas de sombras de ojos",2699)
-const mascaraDescongestiva = new Producto("Mascara descongestiva ",1200)
-const aguaMiselar = new Producto("Agua miselar ",900)
-const delineadorLiquido = new Producto("delineador liquido",550)
+const ahesivo = new Producto("Adhesivo para rostro",849,1)
+const paleta = new Producto("Paleta 18 sombras rubi rose",1490,2)
+const delineador = new Producto("Delineador de ojos de fibra",3196,3)
+const labialExfoliante = new Producto("Labial exfoliante",1598,4)
+const paletaIluminadora = new Producto("Paleta iluminadora",999,5)
+const setAriel = new Producto("Set ariel ",2399,6)
+const mascaraDeColageno = new Producto("Mascara colageno ",987,7)
+const mascaraDapop = new Producto("Mascara 2 en DAPOP ",1796,8)
+const comboPaletas = new Producto("Combo 3 paletas de sombras de ojos",2699,9)
+const mascaraDescongestiva = new Producto("Mascara descongestiva ",1200,10)
+const aguaMiselar = new Producto("Agua miselar ",900,11)
+const delineadorLiquido = new Producto("delineador liquido",550,12)
 
-const baseDeProductos =[ahesivo,paleta,delineador,labialExfoliante,paletaIluminadora,setAriel,mascaraDeColageno,mascaraDapop,comboPaletas,mascaraDescongestiva,aguaMiselar]
-console.log(baseDeProductos);
-baseDeProductos.push(delineadorLiquido);
-console.log(baseDeProductos);
+productos.push(ahesivo);
+productos.push(paleta);
+productos.push(delineador);
+productos.push(labialExfoliante);
+productos.push(paletaIluminadora);
+productos.push(setAriel);
+productos.push(mascaraDeColageno);
+productos.push(mascaraDapop);
+productos.push(comboPaletas);
+productos.push(mascaraDescongestiva);
+productos.push(aguaMiselar);
+productos.push(delineadorLiquido);
+console.log(productos)
+
 
 
 while (agregarOtroProducto == true) {   
-    if (productosAgregados == 1) {
-        let agregarCantidad 
-        agregarCantidad = parseInt(prompt(`desea agregar mas de este producto?
-         1.si   2.no`));
-         if (agregarCantidad == 1 ) {
-            agregarCantidad = true;
-         }else if(agregarCantidad == 2){
-            agregarCantidad = false;
-         }else(
-            alert(`el caracter no es valido`)
-         )
-        if (agregarCantidad == true ) {
-            productosAlCarrito = parseInt(prompt(`cuantos desea`));
-            if (productosAlCarrito <= 10) {
-                totalDeProductos = productosAlCarrito + totalDeProductos;
-                productosAlCarrito = productosAlCarrito * baseDeProductos[0].precio;
-                console.log(productosAlCarrito)
-                agregarCantidad = false;
-                
-            } else if(productosAlCarrito > 10){
-                alert(`maximo de 10 productos`);
-            }        
-        }
-
-    } 
-    else if(productosAgregados == 2){
-        let agregarCantidad 
-        agregarCantidad = parseInt(prompt(`desea agregar mas de este producto?
-         1.si   2.no`));
-         if (agregarCantidad == 1 ) {
-            agregarCantidad = true;
-         }else if(agregarCantidad == 2){
-            agregarCantidad = false;
-         }else(
-            alert(`el caracter no es valido`)
-         )
-        if (agregarCantidad == true ) {
-            productosAlCarrito = parseInt(prompt(`cuantos desea`));
-            if (productosAlCarrito <= 10) {
-                totalDeProductos = productosAlCarrito + totalDeProductos;
-                productosAlCarrito = productosAlCarrito * baseDeProductos[1].precio;
-                
-                
-            } else if(productosAlCarrito > 10){
-                alert(`maximo de 10 productos`);
-            }        
-        }
-
-    }
-    else if(productosAgregados == 3){
-        let agregarCantidad 
-        agregarCantidad = parseInt(prompt(`desea agregar mas de este producto?
-         1.si   2.no`));
-         if (agregarCantidad == 1 ) {
-            agregarCantidad = true;
-         }else if(agregarCantidad == 2){
-            agregarCantidad = false;
-         }else(
-            alert(`el caracter no es valido`)
-         )
-        if (agregarCantidad == true ) {
-            productosAlCarrito = parseInt(prompt(`cuantos desea`));
-            if (productosAlCarrito <= 10) {
-                totalDeProductos = productosAlCarrito + totalDeProductos;
-                productosAlCarrito = productosAlCarrito * baseDeProductos[2].precio;
-                
-                
-            } else if(productosAlCarrito > 10){
-                alert(`maximo de 10 productos`);
-            }        
-        }
-
-    }
-    else if(productosAgregados == 4 ){
-        let agregarCantidad 
-        agregarCantidad = parseInt(prompt(`desea agregar mas de este producto?
-         1.si   2.no`));
-         if (agregarCantidad == 1 ) {
-            agregarCantidad = true;
-         }else if(agregarCantidad == 2){
-            agregarCantidad = false;
-         }else(
-            alert(`el caracter no es valido`)
-         )
-        if (agregarCantidad == true ) {
-            productosAlCarrito = parseInt(prompt(`cuantos desea`));
-            if (productosAlCarrito <= 10) {
-                totalDeProductos = productosAlCarrito + totalDeProductos;
-                productosAlCarrito = productosAlCarrito * baseDeProductos[3].precio;
-                
-                
-            } else if(productosAlCarrito > 10){
-                alert(`maximo de 10 productos`);
-            }        
-        }
-    }
-    else if(productosAgregados == 5){
-        let agregarCantidad 
-        agregarCantidad = parseInt(prompt(`desea agregar mas de este producto?
-         1.si   2.no`));
-         if (agregarCantidad == 1 ) {
-            agregarCantidad = true;
-         }else if(agregarCantidad == 2){
-            agregarCantidad = false;
-         }else(
-            alert(`el caracter no es valido`)
-         )
-        if (agregarCantidad == true ) {
-            productosAlCarrito = parseInt(prompt(`cuantos desea`));
-            if (productosAlCarrito <= 10) {
-                totalDeProductos = productosAlCarrito + totalDeProductos;
-                productosAlCarrito = productosAlCarrito * baseDeProductos[4].precio;
-                
-                
-            } else if(productosAlCarrito > 10){
-                alert(`maximo de 10 productos`);
-            }        
-        }
-
-    }
-    else if(productosAgregados == 6 ){
-        let agregarCantidad 
-        agregarCantidad = parseInt(prompt(`desea agregar mas de este producto?
-         1.si   2.no`));
-         if (agregarCantidad == 1 ) {
-            agregarCantidad = true;
-         }else if(agregarCantidad == 2){
-            agregarCantidad = false;
-         }else(
-            alert(`el caracter no es valido`)
-         )
-        if (agregarCantidad == true ) {
-            productosAlCarrito = parseInt(prompt(`cuantos desea`));
-            if (productosAlCarrito <= 10) {
-                totalDeProductos = productosAlCarrito + totalDeProductos;
-                productosAlCarrito = productosAlCarrito * baseDeProductos[5].precio;
-                
-                
-            } else if(productosAlCarrito > 10){
-                alert(`maximo de 10 productos`);
-            }        
-        }
-
-    }
-    else if(productosAgregados == 7){
-        let agregarCantidad 
-        agregarCantidad = parseInt(prompt(`desea agregar mas de este producto?
-         1.si   2.no`));
-         if (agregarCantidad == 1 ) {
-            agregarCantidad = true;
-         }else if(agregarCantidad == 2){
-            agregarCantidad = false;
-         }else(
-            alert(`el caracter no es valido`)
-         )
-        if (agregarCantidad == true ) {
-            productosAlCarrito = parseInt(prompt(`cuantos desea`));
-            if (productosAlCarrito <= 10) {
-                totalDeProductos = productosAlCarrito + totalDeProductos;
-                productosAlCarrito = productosAlCarrito * baseDeProductos[6].precio;
-                
-                
-            } else if(productosAlCarrito > 10){
-                alert(`maximo de 10 productos`);
-            }        
-        }  
-    }
-    else if(productosAgregados == 8){
-        let agregarCantidad 
-        agregarCantidad = parseInt(prompt(`desea agregar mas de este producto?
-         1.si   2.no`));
-         if (agregarCantidad == 1 ) {
-            agregarCantidad = true;
-         }else if(agregarCantidad == 2){
-            agregarCantidad = false;
-         }else(
-            alert(`el caracter no es valido`)
-         )
-        if (agregarCantidad == true ) {
-            productosAlCarrito = parseInt(prompt(`cuantos desea`));
-            if (productosAlCarrito <= 10) {
-                totalDeProductos = productosAlCarrito + totalDeProductos;
-                productosAlCarrito = productosAlCarrito * baseDeProductos[7].precio;
-                
-                
-            } else if(productosAlCarrito > 10){
-                alert(`maximo de 10 productos`);
-            }        
-        }
-
-    }
-    else if(productosAgregados == 9){
-        let agregarCantidad 
-        agregarCantidad = parseInt(prompt(`desea agregar mas de este producto?
-         1.si   2.no`));
-         if (agregarCantidad == 1 ) {
-            agregarCantidad = true;
-         }else if(agregarCantidad == 2){
-            agregarCantidad = false;
-         }else(
-            alert(`el caracter no es valido`)
-         )
-        if (agregarCantidad == true ) {
-            productosAlCarrito = parseInt(prompt(`cuantos desea`));
-            if (productosAlCarrito <= 10) {
-                totalDeProductos = productosAlCarrito + totalDeProductos;
-                productosAlCarrito = productosAlCarrito * baseDeProductos[8].precio;
-                
-                
-            } else if(productosAlCarrito > 10){
-                alert(`maximo de 10 productos`);
-            }        
-        }
-    }
-    else if(productosAgregados == 10 ){
-        let agregarCantidad 
-        agregarCantidad = parseInt(prompt(`desea agregar mas de este producto?
-         1.si   2.no`));
-         if (agregarCantidad == 1 ) {
-            agregarCantidad = true;
-         }else if(agregarCantidad == 2){
-            agregarCantidad = false;
-         }else(
-            alert(`el caracter no es valido`)
-         )
-        if (agregarCantidad == true ) {
-            productosAlCarrito = parseInt(prompt(`cuantos desea`));
-            if (productosAlCarrito <= 10) {
-                totalDeProductos = productosAlCarrito + totalDeProductos;
-                productosAlCarrito = productosAlCarrito * baseDeProductos[9].precio;
-                
-                
-            } else if(productosAlCarrito > 10){
-                alert(`maximo de 10 productos`);
-            }        
-        }
-
-    }
-    else if(productosAgregados == 11){
-        let agregarCantidad 
-        agregarCantidad = parseInt(prompt(`desea agregar mas de este producto?
-         1.si   2.no`));
-         if (agregarCantidad == 1 ) {
-            agregarCantidad = true;
-         }else if(agregarCantidad == 2){
-            agregarCantidad = false;
-         }else(
-            alert(`el caracter no es valido`)
-         )
-        if (agregarCantidad == true ) {
-            productosAlCarrito = parseInt(prompt(`cuantos desea`));
-            if (productosAlCarrito <= 10) {
-                totalDeProductos = productosAlCarrito + totalDeProductos;
-                productosAlCarrito = productosAlCarrito * baseDeProductos[10].precio;
-                
-                
-            } else if(productosAlCarrito > 10){
-                alert(`maximo de 10 productos`);
-            }        
-        }
-    }
-    else if(productosAgregados == 12){
-        let agregarCantidad 
-        agregarCantidad = parseInt(prompt(`desea agregar mas de este producto?
-         1.si   2.no`));
-         if (agregarCantidad == 1 ) {
-            agregarCantidad = true;
-         }else if(agregarCantidad == 2){
-            agregarCantidad = false;
-         }else(
-            alert(`el caracter no es valido`)
-         )
-        if (agregarCantidad == true ) {
-            productosAlCarrito = parseInt(prompt(`cuantos desea`));
-            if (productosAlCarrito <= 10) {
-                totalDeProductos = productosAlCarrito + totalDeProductos;
-                productosAlCarrito = productosAlCarrito * baseDeProductos[11].precio;
-            } else if(productosAlCarrito > 10){
-                alert(`maximo de 10 productos`);
-            }        
-        }
-    }
-    else{
-        productosAgregados = parseInt(prompt(`No se selecciono ningun producto existente intente de nuevo
-        ELIGUE UNO DE NUESTROS PRODUCTOS:\n 
-     1.ADHESIVO PARA ROSTRO 
+const productoSeleccionado = productos.find(prod=>prod.id===productosAgregados)
+ 
+     
+   if (productoSeleccionado) {
+    let cantidadDeProductos = parseInt(prompt(`Cuantos productos desea agregar?`))
+     if (cantidadDeProductos <= 10) {
+         productoNombre = productoSeleccionado.nombre;
+         productoPrecio = productoSeleccionado.precio;
+        cantidadDeCompras = cantidadDeProductos * productoSeleccionado.precio;
+        comprasTotales = comprasTotales + cantidadDeCompras;
+        productosDesglosados = [productoSeleccionado.nombre, productoSeleccionado.precio, cantidadDeProductos];
+        productosDesglosadosTotal.push(productosDesglosados.join("---------"))
+     }
+}else{
+     productosAgregados = parseInt(prompt(
+    `No se selecciono ningun producto existente intente de nuevo
+    ELIGUE UNO DE NUESTROS PRODUCTOS:\n 
+     1.Adhesivo para rostro
      2.Paleta 18 sombras rubi rose
      3.Delineador de ojos de fibra
      4.Labial exfoliante
@@ -345,38 +94,31 @@ while (agregarOtroProducto == true) {
         `));
         continue
     }
-   
-    seguirComprando = prompt(`desea segir agregando productos:
-         1.si - 2.no
-             `)
+    seguirComprando = prompt(`Desea segir agregando productos?
+         1.si - 2.no`)
 
 if (seguirComprando == 1){
     agregarOtroProducto = true;
-    prompt(
+    productosAgregados=parseInt(prompt(
         `ELIGUE UNO DE NUESTROS PRODUCTOS:\n 
-         1.ADHESIVO PARA ROSTRO 
-         2.Paleta 18 sombras rubi rose
-         3.Delineador de ojos de fibra
-         4.Labial exfoliante
-         5.Paleta iluminadora
-         6.Set ariel
-         7.Mascara colageno
-         8.Mascara 2 en DAPOP
-         9.Combo 3 paletas de sombras de ojos
-         10.Mascara descongestiva
-         11.Agua miselar
-         12.delineador liquido
-    `);
-    productosAgregados 
+         1.Adhesivo para rostro  
+         2.Paleta 18 sombras rubi rose 
+         3.Delineador de ojos de fibra 
+         4.Labial exfoliante 
+         5.Paleta iluminadora 
+         6.Set ariel 
+         7.Mascara colageno 
+         8.Mascara 2 en DAPOP 
+         9.Combo 3 paletas de sombras de ojos 
+         10.Mascara descongestiva 
+         11.Agua miselar 
+         12.delineador liquido 
+    `))
+     
 }else if(seguirComprando == 2){
     agregarOtroProducto = false;
 }
- 
 }
-
-document.write(`total de productos agregados: <b style="color: red;">${totalDeProductos}</b><br>`);
-document.write(`total del costo de productos agregados al carrito ${productosAlCarrito}<br>`);
-
 class CalculadoraPrecioFinal{
     constructor(total){
         this.total = total
@@ -396,9 +138,13 @@ class CalculadoraPrecioFinal{
          return total
     }
 }
-const calculadora = new CalculadoraPrecioFinal(productosAlCarrito);
+const calculadora = new CalculadoraPrecioFinal(comprasTotales)
 
-document.write(`valor con descuento agregado ${calculadora.valorConDescuento()}<br>`);
+document.write(`PRODUCTO-----------------PRECIO---CANTIDAD<br>`)
+document.write(`${productosDesglosadosTotal.join(`  <br>  `)} <br>`)
+document.write(`total de productos agregados al carrito: <b style="color:red ;">${comprasTotales}$</b><br>`);
+document.write(`valor con descuento agregado: ${calculadora.valorConDescuento()}$<br>`);
+
 
 
 
