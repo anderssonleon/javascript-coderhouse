@@ -1,0 +1,35 @@
+.bg-nav{
+    background: linear-gradient(to right, #000,rgb(19, 18, 18));
+}
+.nav-a {
+    display: block;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    font-size: 16 px;
+    font-weight: var(--bs-nav-link-font-weight);
+    color: #fff;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: 0.5s;
+    text-transform: uppercase;
+  }
+
+  @media only screen and (max-width: 980px) {
+    .nav-a {
+      font-size: 20px;
+    }
+  }
+  .nav-a:hover {
+    color: hsl(305, 100%, 51%);
+  }
+  
+  #button {
+    background-color:  hsl(305, 100%, 51%);
+  }
+.logo__img{
+    width: 8vw;
+}
+
+.card{
+  width: 18rem !important;
+  margin: 5px;
+}

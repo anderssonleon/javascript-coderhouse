@@ -23,7 +23,7 @@ let productoPrecio;
 let productosDesglosadosTotal =[]
 
 
-
+/*ACA AGREGAMOS NUEVOS PRODUCTOS POR EL CONSTRUCTOR*/
 
 class Producto{
     constructor(nombre,precio,id){
@@ -45,6 +45,8 @@ const mascaraDescongestiva = new Producto("Mascara descongestiva ",1200,10)
 const aguaMiselar = new Producto("Agua miselar ",900,11)
 const delineadorLiquido = new Producto("delineador liquido",550,12)
 
+/**AFREGANDO PRODUCTOS AL ARRAYS */
+
 productos.push(ahesivo);
 productos.push(paleta);
 productos.push(delineador);
@@ -60,7 +62,7 @@ productos.push(delineadorLiquido);
 console.log(productos)
 
 
-
+/* meto while para la seleccion del producto */
 while (agregarOtroProducto == true) {   
 const productoSeleccionado = productos.find(prod=>prod.id===productosAgregados)
  
