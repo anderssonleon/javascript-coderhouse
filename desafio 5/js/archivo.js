@@ -1,6 +1,8 @@
 let productos =[]
-carrito =[]
+let carrito =[]
 const productTag = document.getElementById('article')
+const canasta = document.getElementById('container2')
+let comprasTotales = 0
 
 class Producto{
     constructor(nombre,precio,id){
@@ -51,13 +53,32 @@ productos.forEach(producto=>{
     
     
     const button =  document.createElement('button')
-    button.className = 'btn btn-primary'
+    button.className = 'btn btn-primary w-50'
     button.innerText = `AGREGAR`
     contenedor.appendChild(button)
-
-
+ 
     productTag.append(contenedor)
+    
+    
+    button.onclick = ()=>{
+      let selection =  producto;
+      carrito.push(selection)
+      console.log(carrito)
+    }
+
 })
+
+const button2 =  document.createElement('button')
+    button2.className = 'btn btn-warning'
+    button2.innerText = `terminar compra`
+    canasta.append(button2)
+
+    button2.onclick = ()=>{
+        carrito.forEach((prod)=>{
+            comprasTotales = comprasTotales + prod.precio
+        })
+         alert(`compras totales: $${comprasTotales}`)
+      }
 
 
 
