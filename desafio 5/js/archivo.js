@@ -1,8 +1,10 @@
+
 let productos =[]
 let carrito =[]
 const productTag = document.getElementById('article')
 const canasta = document.getElementById('container2')
 let comprasTotales = 0
+
 
 class Producto{
     constructor(nombre,precio,id){
@@ -70,7 +72,7 @@ productos.forEach(producto=>{
 
 const button2 =  document.createElement('button')
     button2.className = 'btn btn-warning'
-    button2.innerText = `terminar compra`
+    button2.innerText = `TERMINAR COMPRA`
     canasta.append(button2)
 
     button2.onclick = ()=>{
@@ -79,6 +81,14 @@ const button2 =  document.createElement('button')
         })
          alert(`compras totales: $${comprasTotales}`)
       }
+
+
+
+
+
+
+/*DESDE ACA CODIGO DEL CARRITO DE COMPRAS PARA AGREAGAR UN ELEMENTO USAR EL CONSTRUCTOR */
+
 
 
 
