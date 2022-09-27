@@ -11,7 +11,7 @@ const paleta = new Producto("Paleta 18 sombras rubi rose",1490,2,1)
 const delineador = new Producto("Delineador de ojos de fibra",3196,3,1)
 const labialExfoliante = new Producto("Labial exfoliante",1598,4,1)
 const paletaIluminadora = new Producto("Paleta iluminadora",999,5,1)
-const setAriel = new Producto("Set ariel ",2399,6)
+const setAriel = new Producto("Set ariel ",2399,6,1)
 const mascaraDeColageno = new Producto("Mascara colageno ",987,7,1)
 const mascaraDapop = new Producto("Mascara 2 en DAPOP ",1796,8)
 const comboPaletas = new Producto("Combo 3 paletas de sombras de ojos",2699,9,1)
@@ -72,6 +72,7 @@ const agregarCarrito = (prodId) =>{
     carrito.push(item)
     actualizarCarrito()
     console.log(carrito)
+    swal("Producto agregado!", "producto en carrito!", "success");
 }
 
 const actualizarCarrito = ()=>{
