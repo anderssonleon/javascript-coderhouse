@@ -37,7 +37,6 @@
   margin: 20px;
 }
 
-
 /*INGRESO A LA PAGINA DATOS DE BIENVENIDA*/
 .divContainer{
   background-image: url(./photos/fondo.png);
@@ -91,9 +90,7 @@
   display: none;
   border: 2px solid #000;
 }
-.formulario__input-error-activo{
-  color:red;
-}
+
 
 
 .formulario__mensaje{
@@ -105,31 +102,62 @@
   border: 1px solid #000;
   display: none;
 }
-.formulario__mensaje-activo{
-  display: block;
-}
 
+/*EN CASO DE NO LLENAR EL FORMULARIO*/
 
-.formulario__grupo-incorrecto .formulario__label{
-color:red
+.invalido{
+ background:linear-gradient(transparent,rgba(255, 0, 0,.4)) ;
+ 
 }
-
-.formulario__grupo-incorrecto .formulario__input-error{
-  color: red;
-  opacity: 1;
+.mensajeInvalido{
+  position: absolute;
+  border: 2px solid #000;
+  width: 20vw;
+  background-color: rgba(255, 0, 0,.6);
+  text-align: center;
+  color: #fff;
+  font-size: 1em;
+  border-radius: 10px;
 }
-.formulario__grupo-incorrecto .formulario__input{
-  border-bottom: 2px solid red;
+/*en caso de input coorectos*/
+#spinner{
+  opacity: 0;
 }
-
+.valido{
+  background:linear-gradient(transparent,rgba(30, 255, 0, 0.363)) 
+}
+.bg-spinner{
+  color: rgba(82, 255, 1, 0.884);
+}
 /*desde aca pestana de saludoo*/
 
+.bottn__carrito{
+  width: 40px;
+  margin: 0px auto;
+  background-color:  #8a2be2;
+  color: #fff;
+  text-decoration: none;
+}
+.bottn__carrito:hover{
+  background:linear-gradient(  #8a2be2,  #e141ac );
+}
+.card-text{
+  color: #000;
+}
+.bottn__carrito a:hover{
+  color: #8a2be2;
+}
 
 
 
 
 
-
+/*contador carrito*/
+.contadorcarritostyle{
+  color: red;
+  font-size: 2rem;
+  font-weight: bold;
+}
 
 
 /*DESDES ACA CARRITO*/
@@ -143,24 +171,6 @@ color:red
   font-size: 20px;
   margin: 0px auto;
   color: #fff;
-}
-.bottn__carrito{
-  width: 30%;
-  margin: 0px auto;
-  height: 5vw;
-  background-color:  #8a2be2;
-  border-radius: 6%;
-}
-.bottn__carrito:hover{
-  background:linear-gradient(  #8a2be2,  #e141ac );
-}
-
-.bottn__carrito a{
-  color: #fff;
-  text-decoration: none;
-}
-.bottn__carrito a:hover{
-  color: #8a2be2;
 }
 
 .productoCarrito{
