@@ -13,7 +13,7 @@ const labialExfoliante = new Producto("Labial exfoliante",1598,4,1)
 const paletaIluminadora = new Producto("Paleta iluminadora",999,5,1)
 const setAriel = new Producto("Set ariel ",2399,6,1)
 const mascaraDeColageno = new Producto("Mascara colageno ",987,7,1)
-const mascaraDapop = new Producto("Mascara 2 en DAPOP ",1796,8)
+const mascaraDapop = new Producto("Mascara 2 en DAPOP ",1796,8,1)
 const comboPaletas = new Producto("Combo 3 paletas de sombras de ojos",2699,9,1)
 const mascaraDescongestiva = new Producto("Mascara descongestiva ",1200,10,1)
 const aguaMiselar = new Producto("Agua miselar ",900,11,1)
@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     if(localStorage.getItem('carrito')){
         carrito = JSON.parse(localStorage.getItem('carrito'))
         actualizarCarrito()
+        
     }
 })
 
@@ -56,6 +57,41 @@ botonVaciar.onclick = ()=>{
     carrito.length = 0
     actualizarCarrito()
 }
+const botonPrueba = document.getElementById('botoonPurba')
+botonPrueba.onclick = async()=>{
+            productos =[]
+            const info = await fetch('https://productosmakeups-default-rtdb.firebaseio.com/productos.json')
+           const infoJson = await info.json()
+           const data  = infoJson.forEach((produc=> {
+                  const  productos2 = new Producto(produc.nombre,produc.precio,produc.id,produc.cantidad)
+                  productos.push(productos2) 
+                 }))
+                 productos.forEach(producto=>{
+                    const contenedor = document.createElement('div')
+                    contenedor.className = `card col-lg-4 col-md-6 col-sm-6 mt-5`
+                    contenedor.innerHTML = `
+                    <div class="card-body">
+                    <h5 class="card-title">${producto.nombre}
+                    ${producto.precio}</h5>
+                    <button id="${producto.id}" class="btn w-50  btn btn-outline-info">AGREGAR</button>
+                    </div>
+                    `  
+                    console.log(productos)
+                   contenedorProductos.appendChild(contenedor)
+                
+                 
+                   const button = document.getElementById(`${producto.id}`)
+                
+                
+                   button.addEventListener('click',()=>{
+                       agregarCarrito(producto.id)
+                       
+                      }) 
+                  
+                })
+                botonPrueba.remove()
+                 
+    }
 
 productos.forEach(producto=>{
     const contenedor = document.createElement('div')
@@ -76,7 +112,9 @@ productos.forEach(producto=>{
 
    button.addEventListener('click',()=>{
        agregarCarrito(producto.id)
+       
       })
+
 
   
 })
@@ -125,7 +163,12 @@ const actualizarCarrito = ()=>{
     })
 
      contadorCarrito.innerText = carrito.length
-     precioTotal.innerText = carrito.reduce((acc , prod) => acc + prod.precio,0)
+     precioTotal.innerText = carrito.reduce((acc , prod) => acc + (prod.precio * prod.cantidad),0)
 }
+
+
+
+   
+
 
 

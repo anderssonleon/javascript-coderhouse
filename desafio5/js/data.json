@@ -1,0 +1,20 @@
+{
+     "productos":[
+          {      
+          "nombre":"delineador mac",
+          "precio":849,
+           "id":13,
+          "cantidad":1
+          },
+          {
+               "nombre":"corector grild",
+               "precio":1490,
+                "id":14,
+               "cantidad":1
+          }
+     ]
+
+        
+
+     
+}
