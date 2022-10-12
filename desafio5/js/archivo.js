@@ -58,8 +58,20 @@ botonVaciar.onclick = ()=>{
     actualizarCarrito()
 }
 const botonPrueba = document.getElementById('botoonPurba')
+function spinnerLoader() {
+    const loader = document.getElementById('spinnerCarga')
+
+    setTimeout(()=>{
+        loader.style.display = "inline-block"
+    },2000
+    
+    )
+
+}
+botonPrueba.addEventListener('click',spinnerLoader)
 botonPrueba.onclick = async()=>{
-            productos =[]
+   
+            productos =[]   
             const info = await fetch('https://productosmakeups-default-rtdb.firebaseio.com/productos.json')
            const infoJson = await info.json()
            const data  = infoJson.forEach((produc=> {
@@ -165,6 +177,8 @@ const actualizarCarrito = ()=>{
      contadorCarrito.innerText = carrito.length
      precioTotal.innerText = carrito.reduce((acc , prod) => acc + (prod.precio * prod.cantidad),0)
 }
+
+
 
 
 

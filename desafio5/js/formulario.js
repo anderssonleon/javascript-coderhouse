@@ -88,9 +88,10 @@ function enviarEmail(e) {
         localStorage.setItem('usuarioStorage', JSON.stringify(usuario));
     
         welcome(usuario)
-    },2000
+    },1000
     )
 }
+
 function welcome(user) {
     const saludarTitle = document.createElement('div')
     saludarTitle.innerHTML =`
