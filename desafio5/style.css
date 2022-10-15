@@ -1,3 +1,72 @@
+/**SPINNER DE LOADING HTML**/
+.hidden{
+overflow:hidden ;
+}
+.center__loading{
+  background-color: #000;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.center__loading-p{
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+ 
+
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid rgb(255, 4, 213);
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  4.9% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  5% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
+
+
+/*NAV DE LA PAGINA*/
 .bg-nav{
     background: linear-gradient(to right, #000,rgb(19, 18, 18));
 }
@@ -41,6 +110,7 @@
 .divContainer{
   background-image: url(./photos/fondo.png);
 }
+
 
 
 .divData{
@@ -129,27 +199,30 @@
 .bg-spinner{
   color: rgba(255, 1, 149, 0.884);
 }
-/*desde aca pestana de saludoo*/
+/*CARPETA DE BIENVENIDA*/
 
-.bottn__carrito{
-  width: 40px;
-  margin: 0px auto;
-  background-color:  #8a2be2;
+.divWelcome{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(138, 43, 226,.7);
+  
+}
+.divresponsive__divWelcome{
+  box-shadow: 12px 12px 2px #000;
+  background-color: rgba(255, 0, 212, 0.7);
+
+}
+.H2__divWelcome{
   color: #fff;
-  text-decoration: none;
 }
-.bottn__carrito:hover{
-  background:linear-gradient(  #8a2be2,  #e141ac );
+.p__divWelcome{
+  color: #fff;
+  text-align: center;
 }
-.card-text{
-  color: #000;
-}
-.bottn__carrito a:hover{
-  color: #8a2be2;
-}
-
-
-
+/*DESDE ACA CARRITO.HTML--------------------------------------------------------------------------------------------------------*/
 
 
 /*contador carrito*/
@@ -164,26 +237,15 @@
 .bg-body{
   background: linear-gradient(#8a2be2,#f700ff);
 }
-.divSaludo{
-  background-color: rgba(138, 116, 116, .7);
-  margin:0px auto;
-  padding:10.9vw 10vw;
-  font-size: 20px;
-  margin: 0px auto;
-  color: #fff;
-}
-
-.productoCarrito{
-  width: 100%;
-}
-
 #boton-carrito {
+  position: sticky;
+  top: 20px;
   border: none;
-  color: #e141ac;
+  color: #0a0a0a;
   font-size: 40px;
-  background-color: white;
+  background-color: #fff;
+  border: 2px solid #000;
   border-radius: 10%;
-  padding: 10px 20px;
   transition: all .3s;
 }
 #boton-carrito:hover {
@@ -313,64 +375,20 @@ p {
 .boton-eliminar:focus {
   outline: none;
 }
+/*botton addiction*/
 
-
-/*tarjetas de productos*/
-
-/*spinner de boton ver mas*/
-.lds-ellipsis {
-  display: none;
-  position: relative;
-  width: 80px;
-  height: 80px;
+.content__button__addiction{
+  display: flex;
+  justify-content: start;
+  margin-top: 10px;
 }
-.lds-ellipsis div {
-  position: absolute;
-  top: 33px;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: #fff;
-  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+.button__addiction{
+  border: 2px solid #000;
+  border-radius: 5px;
+  background:radial-gradient(rgb(167, 0, 218),rgb(255, 0, 76)) ;
+  color: #fff;
+  
 }
-.lds-ellipsis div:nth-child(1) {
-  left: 8px;
-  animation: lds-ellipsis1 0.6s infinite;
+.button__addiction:focus{
+  background: rgb(167, 0, 70);
 }
-.lds-ellipsis div:nth-child(2) {
-  left: 8px;
-  animation: lds-ellipsis2 0.6s infinite;
-}
-.lds-ellipsis div:nth-child(3) {
-  left: 32px;
-  animation: lds-ellipsis2 0.6s infinite;
-}
-.lds-ellipsis div:nth-child(4) {
-  left: 56px;
-  animation: lds-ellipsis3 0.6s infinite;
-}
-@keyframes lds-ellipsis1 {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes lds-ellipsis3 {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
-}
-@keyframes lds-ellipsis2 {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(24px, 0);
-  }
-}
-

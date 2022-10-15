@@ -1,3 +1,10 @@
+window.onload = function() {
+    $('#onload').fadeOut();
+    $('body').remove('hidden')
+
+}
+
+const divRemove = document.getElementById('divRemove')
 const divDatos = document.getElementById('divDataId');
 const inputNombre = document.getElementById('nombre');
 const inputUsuario = document.getElementById('usuario');
@@ -14,8 +21,6 @@ eventos()
 
 function eventos() {
     document.addEventListener('DOMContentLoaded',btnDisabled)
-
-
     inputNombre.addEventListener('blur',formularioEnviar)
     inputUsuario.addEventListener('blur',formularioEnviar)
     inputEmail.addEventListener('blur',formularioEnviar)
@@ -26,36 +31,35 @@ function btnDisabled() {
 }
 
 function formularioEnviar(e) {
-   if (e.target.value.length > 0) {
+   if (e.target.value.length > 1) {
     const error = document.querySelector('p.error')
     if (error) {
         error.remove()
+        e.target.classList.add('valido')
+        
     }
-    e.target.classList.add('valido')
    }else{
     e.target.classList.remove('valido')
      e.target.classList.add('invalido')
      mensajeError(`llenar todos los campos para continuar`)
    }
-
    if (e.target.type === 'email') {
       if (expresion.test(e.target.value)){
         const error = document.querySelector('p.error')
           if (error) {
             error.remove()
+            e.target.classList.add('valido')
+            
          }
-        e.target.classList.add('valido')
       }else{
         e.target.classList.remove('valido')
         e.target.classList.add('invalido')
         mensajeError('email no es valido!')
       }
    }
-
-  if (expresion.test(inputEmail.value) !== '' && inputNombre.value !== '' && inputUsuario !== '') {
-    btn.disabled = false
-   
-    }
+   if (expresion.test(inputEmail) !==" " & inputNombre !==" " & inputUsuario !==" ") {
+    btn.disabled = false;
+}
 
 }
 
@@ -79,32 +83,27 @@ function enviarEmail(e) {
 
     setTimeout(()=>{
         loader.style.opacity = 0
-        divDatos.remove()
+        divRemove.remove()
         const usuario={
             usuario:inputUsuario.value,
             nombre:inputNombre.value,
             email:inputEmail.value
         }
         localStorage.setItem('usuarioStorage', JSON.stringify(usuario));
-    
         welcome(usuario)
-    },1000
+    },2000
     )
 }
 
 function welcome(user) {
     const saludarTitle = document.createElement('div')
+    saludarTitle.classList.add('divWelcome')
     saludarTitle.innerHTML =`
-    <div class="card" style="width: 100%;">
-  <img src="./photos/usuario.png" class="card-img-top" alt="imgUsuario">
-  <div class="card-body">
-    <h5 class="card-title">BIENVENIDO!</h5>
-    <p class="card-text">Hola! ${user.usuario} eres parte de nuestra comunidad!</p>
+    <div class="divresponsive__divWelcome">
+    <h2 class="H2__divWelcome">BIENVENIDO!</h2>
+    <p class="p__divWelcome">Hola! ${user.usuario} eres parte de nuestra comunidad!</p>
     <a href="carrito.html"><button class="btn w-50  btn btn-outline-info">bienvenido</button></a>
        </div>
-     </div>
     `
-
     divSaludo.append(saludarTitle)
-    
 }
